@@ -8,9 +8,9 @@ The goal of this project is to understand practical cybersecurity concepts such 
 
 ---
 
-## 🚀 Features
+# 🚀 Features
 
-### 🔍 URL Feature Analysis
+## 🔍 URL Feature Analysis
 
 - URL parsing and validation
 - HTTPS usage detection
@@ -19,34 +19,44 @@ The goal of this project is to understand practical cybersecurity concepts such 
 - Multiple subdomain detection
 - IP address detection inside URLs
 
-### 🔐 SSL Certificate Analysis
+---
+
+## 🔐 SSL Certificate Analysis
 
 - SSL certificate validation
 - Certificate issuer information
 - Certificate expiry details
 - SSL error handling
 
-### 🌐 DNS Analysis
+---
+
+## 🌐 DNS Analysis
 
 - DNS resolution checking
 - IP address extraction
 - DNS failure detection
 
-### 📅 Domain Intelligence
+---
+
+## 📅 Domain Intelligence
 
 - WHOIS availability checking
 - Domain age analysis
 - Domain expiry information
 - WHOIS error handling
 
-### 🛡️ Threat Reputation Analysis
+---
+
+## 🛡️ Threat Reputation Analysis
 
 - VirusTotal API integration
 - Malicious engine detection
 - Suspicious engine detection
 - Harmless engine count retrieval
 
-### 📊 Risk Assessment
+---
+
+## 📊 Risk Assessment
 
 - Weighted risk scoring system
 - Multiple security indicators combined
@@ -68,7 +78,7 @@ Phishing-URL-Detection-System/
 ├── ssl_check.py            # SSL certificate analysis
 ├── dns_check.py            # DNS resolution analysis
 ├── domain_info.py          # WHOIS domain information
-├── reputation.py            # VirusTotal reputation analysis
+├── reputation.py           # VirusTotal reputation analysis
 ├── risk_engine.py          # Risk scoring and classification
 ├── report.py               # Final report generation
 │
@@ -101,7 +111,7 @@ Phishing-URL-Detection-System/
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/rawatsaransh/Phishing-URL-Detection-System.git
+git clone https://github.com/yourusername/Phishing-URL-Detection-System.git
 ```
 
 Navigate into the project directory:
@@ -124,21 +134,23 @@ pip install -r requirements.txt
 
 ## 3. Configure VirusTotal API
 
-Create a file named:
+This project uses the VirusTotal API for threat reputation analysis.
+
+Create a `.env` file inside the project directory:
 
 ```
 .env
 ```
 
-inside the project directory.
-
 Add your VirusTotal API key:
 
 ```env
-VIRUSTOTAL_API_KEY=YOUR_API_KEY_HERE
+VIRUSTOTAL_API_KEY=your_api_key_here
 ```
 
-⚠️ Do not upload your `.env` file to GitHub.
+You can obtain an API key by creating an account on VirusTotal.
+
+⚠️ Never upload your `.env` file or expose your API key publicly.
 
 ---
 
@@ -208,43 +220,72 @@ The system calculates a risk score based on multiple security indicators.
 
 Example phishing URL analysis:
 
-```
-PHISHING URL DETECTION REPORT
+```text
+====================================================================================================
+                                   PHISHING URL DETECTION REPORT
+====================================================================================================
 
-URL                   : http://google.com@evil.com/login
+URL                   : http://google.com@evil.com/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 Domain                : evil.com
 
-Overall Risk          : HIGH
+Overall Risk          : 🔴 HIGH
 Risk Score            : 17
 
 
-URL FEATURES
+----------------------------------------------------------------------------------------------------
+                                            URL FEATURES
+----------------------------------------------------------------------------------------------------
 
-HTTPS Used            : No
-Contains @ Symbol     : Yes
-Long URL              : Yes
+HTTPS Used            : ✗ No
+Long URL              : ✓ Yes
+Contains @ Symbol     : ✓ Yes
+Many Subdomains       : ✗ No
+IP Address In URL     : ✗ No
 
 
-SSL INFORMATION
+----------------------------------------------------------------------------------------------------
+                                          SSL INFORMATION
+----------------------------------------------------------------------------------------------------
 
 SSL Certificate       : Valid
+Issuer                : DigiCert Inc
+Expiry Date           : Jan 25 23:59:59 2027 GMT
 
 
-DNS INFORMATION
+----------------------------------------------------------------------------------------------------
+                                          DNS INFORMATION
+----------------------------------------------------------------------------------------------------
 
-DNS Resolution        : Success
+DNS Resolution        : ✓ Success
+IP Address            : 74.91.138.132
 
 
-VIRUS-TOTAL REPUTATION
+----------------------------------------------------------------------------------------------------
+                                         DOMAIN INFORMATION
+----------------------------------------------------------------------------------------------------
+
+WHOIS Available       : ✓ Yes
+Domain Age            : 11438 days
+Expires In            : 1712 days
+
+
+----------------------------------------------------------------------------------------------------
+                                       VIRUS-TOTAL REPUTATION
+----------------------------------------------------------------------------------------------------
 
 Malicious Engines     : 5
 Suspicious Engines    : 2
+Harmless Engines      : 51
 
 
-FINAL RESULT
+====================================================================================================
+                                            FINAL RESULT
+====================================================================================================
 
 WARNING: This URL appears to be HIGH RISK.
 Avoid visiting or entering sensitive information.
+
+====================================================================================================
 ```
 
 ---
@@ -253,7 +294,7 @@ Avoid visiting or entering sensitive information.
 
 The system follows a heuristic-based detection approach.
 
-Instead of depending on a single parameter, multiple security indicators are analyzed together:
+Instead of depending on a single indicator, multiple security signals are analyzed together:
 
 - Suspicious URL patterns
 - URL manipulation techniques
